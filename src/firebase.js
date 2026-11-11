@@ -1,14 +1,15 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
+// Dedicated Firebase project for vnr-game.
 const firebaseConfig = {
-  apiKey: "AIzaSyDOVa3aGhrwAFh1Jr_jx8ZFpqO5jOG8oE8",
-  authDomain: "mln122-704c5.firebaseapp.com",
-  databaseURL: "https://mln122-704c5-default-rtdb.firebaseio.com",
-  projectId: "mln122-704c5",
-  storageBucket: "mln122-704c5.firebasestorage.app",
-  messagingSenderId: "56472092412",
-  appId: "1:56472092412:web:d953b5a771713e9242e179"
+  "projectId": "vnr-game-20261111",
+  "appId": "1:48383893335:web:6da3001e9fa30601c6e812",
+  "storageBucket": "vnr-game-20261111.firebasestorage.app",
+  "apiKey": "AIzaSyCX8zyEpGFgDAJF9sTqIrnMvpTwBHki_xY",
+  "authDomain": "vnr-game-20261111.firebaseapp.com",
+  "messagingSenderId": "48383893335",
+  "databaseURL": "https://vnr-game-20261111-default-rtdb.asia-southeast1.firebasedatabase.app"
 };
 
 const app = initializeApp(firebaseConfig);

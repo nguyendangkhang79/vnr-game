@@ -1,5 +1,7 @@
 # Dấu ấn lịch sử Đảng · VNR202
 
+Repo độc lập: [nguyendangkhang79/vnr-game](https://github.com/nguyendangkhang79/vnr-game), sao chép từ `hcm201-game` tại commit `8acc7cf66529f3c9901dfa79d1f2c7d226c38037`. Firebase riêng: `vnr-game-20261111`. Xem [thông tin bản sao](docs/CLONE_SETUP.md).
+
 Ứng dụng React + Vite chuyển từ chủ đề cũ sang Lịch sử Đảng Cộng sản Việt Nam, trọng tâm Chủ đề 5 (1975–1986). Giữ kiến trúc React Router và chức năng Bingo qua Firebase.
 
 ## Chạy tại máy
