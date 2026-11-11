@@ -40,7 +40,7 @@ Vite in địa chỉ xem trước trong terminal. Build nằm ở `dist/`. Giữ
 
 Mỗi lượt Quiz lấy ngẫu nhiên 10, 20, 30 hoặc 50 câu trong các chủ đề đã chọn và đảo cả phương án. Bạn cũng có thể chọn ôn toàn bộ số câu thuộc các chủ đề đã chọn. Sau khi xác nhận từng câu, bạn có thể đọc lời giải ngay. Bài ôn tập không giới hạn thời gian và có thể tiếp tục sau khi tải lại.
 
-Ngân hàng bắt đầu trống. Để thêm, nhập JSON, sửa, ẩn hoặc xóa câu hỏi, cấu hình Firebase và mở mục **Ngân hàng câu hỏi ôn tập** tại `/admin`. Xem các biến môi trường và cách triển khai rules trong [docs/QUIZ_SECURITY.md](docs/QUIZ_SECURITY.md).
+Ngân hàng bản sao có 568 câu hỏi lấy từ database gốc. Để thêm, nhập JSON, sửa, ẩn hoặc xóa câu hỏi, mở mục **Ngân hàng câu hỏi ôn tập** tại `/admin`. Xem các biến môi trường và cách triển khai rules trong [docs/QUIZ_SECURITY.md](docs/QUIZ_SECURITY.md).
 
 Bingo chuyển sang `courses/vnr202/gameState` và `courses/vnr202/chat/messages`. Lần đăng nhập trọng tài đầu tiên khởi tạo kho từ khóa bằng transaction nếu chưa có dữ liệu. Không ghi đè kho đã tồn tại và không di chuyển/xóa phòng cũ.
 
@@ -48,8 +48,8 @@ Xóa kho lưu `wordList: false` để phân biệt kho đã được xóa với 
 
 ## Giới hạn bàn giao
 
-Đây là bản triển khai cục bộ, chưa đổi tên miền hoặc triển khai Vercel. Dữ liệu lịch sử đã kèm nguồn đối chiếu nhưng nhóm/giảng viên cần duyệt theo đúng giáo trình đang học. Có bốn địa điểm, chưa đủ sáu; Pò Hèn chưa có ảnh được cấp phép hoặc tour số. Không địa điểm nào được quảng cáo là tour 3D khi chưa xác minh.
+Website bản sao: https://vnr-game-blush.vercel.app. Dữ liệu lịch sử đã kèm nguồn đối chiếu nhưng nhóm/giảng viên cần duyệt theo đúng giáo trình đang học. Có bốn địa điểm, chưa đủ sáu; Pò Hèn chưa có ảnh được cấp phép hoặc tour số. Không địa điểm nào được quảng cáo là tour 3D khi chưa xác minh.
 
-Cơ chế PIN phía client và Firebase rules đọc/ghi công khai của **Bingo** là thiết kế có sẵn, chưa phải phân quyền an toàn. Quiz lưu câu hỏi ở nhánh Firebase riêng do máy chủ truy cập và lưu phiên ôn tập trong Redis.
+Cơ chế PIN phía client và Firebase rules đọc/ghi công khai của **Bingo** là thiết kế có sẵn, chưa phải phân quyền an toàn. Quiz lưu câu hỏi tại `/quizBank` và phiên ôn tập tại `/quizRuntime` trong Firebase riêng; cả hai chỉ do máy chủ truy cập.
 
 Xem phân tích, quyết định và ma trận nghiệm thu tại [docs/VNR202_REVAMP.md](docs/VNR202_REVAMP.md).

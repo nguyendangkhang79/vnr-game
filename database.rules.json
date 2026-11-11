@@ -11,6 +11,13 @@
     "quizBank": {
       ".read": "auth != null && auth.uid === 'vnr202-quiz-server'",
       ".write": "auth != null && auth.uid === 'vnr202-quiz-server'"
+    },
+    "quizRuntime": {
+      ".read": "auth != null && auth.uid === 'vnr202-quiz-server'",
+      ".write": "auth != null && auth.uid === 'vnr202-quiz-server'",
+      "attempts": { ".indexOn": ["expiresAt"] },
+      "actors": { ".indexOn": ["expiresAt"] },
+      "limits": { ".indexOn": ["expiresAt"] }
     }
   }
 }

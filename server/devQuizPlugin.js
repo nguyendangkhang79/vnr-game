@@ -1,7 +1,8 @@
 import { randomBytes } from "node:crypto";
 import { createQuizHandler } from "./quizHttp.js";
 import { createQuizService } from "./quizService.js";
-import { createMemoryStore, createRedisStore } from "./quizStore.js";
+import { createMemoryStore } from "./quizStore.js";
+import { createFirebaseQuizStore } from "./firebaseQuizStore.js";
 import { topics } from "../src/data/quiz.js";
 import { createFirebaseQuestionBank } from "./firebaseQuestionBank.js";
 import { createQuizBank } from "./quizBank.js";
@@ -11,13 +12,10 @@ export function devQuizPlugin(env = {}) {
     name: "vnr202-development-quiz-api",
     configureServer(server) {
       const durable = Boolean(
-        env.UPSTASH_REDIS_REST_URL && env.UPSTASH_REDIS_REST_TOKEN,
+        env.QUIZ_FIREBASE_DATABASE_URL && env.QUIZ_FIREBASE_SERVICE_ACCOUNT,
       );
       const store = durable
-        ? createRedisStore({
-            url: env.UPSTASH_REDIS_REST_URL,
-            token: env.UPSTASH_REDIS_REST_TOKEN,
-          })
+        ? createFirebaseQuizStore(env)
         : createMemoryStore();
       const questionBank = createQuizBank(createFirebaseQuestionBank(env), topics);
       const handler = createQuizHandler({
